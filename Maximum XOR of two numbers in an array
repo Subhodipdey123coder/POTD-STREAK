@@ -1,0 +1,26 @@
+class Solution {
+    // Function to find maximum XOR of two numbers in an array
+    public int findMaximumXOR(int[] arr) {
+        int maxXor = 0;
+        int n = arr.length;
+        
+        // Iterate through all pairs of numbers
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                // Calculate XOR of current pair
+                int currentXor = arr[i] ^ arr[j];
+                // Update maxXor if currentXor is larger
+                maxXor = Math.max(maxXor, currentXor);
+            }
+        }
+        
+        return maxXor;
+    }
+    
+    // Main method to test the solution
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        int[] arr = {3, 10, 5, 25, 2, 8};
+        System.out.println("Maximum XOR: " + sol.findMaximumXOR(arr));
+    }
+}
